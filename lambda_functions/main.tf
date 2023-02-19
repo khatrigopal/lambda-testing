@@ -17,7 +17,7 @@ resource "aws_lambda_function" "lambda_functions" {
   runtime          = each.value.runtime
   source_code_hash = each.value.source_code_hash
 
-  #filename         = each.value.name
+  filename         = each.value.name
   role = each.value.role
 
   #source_code_hash = each.value.source_code_hash
