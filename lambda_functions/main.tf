@@ -18,7 +18,7 @@ resource "aws_lambda_function" "lambda_functions" {
 
   filename         = each.value.name
 
-  source_code_hash = each.value.source_code_hash
+  #source_code_hash = each.value.source_code_hash
 
   #source_code_size = data.archive_file[each.value.name].output_size
 
