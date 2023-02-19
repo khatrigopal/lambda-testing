@@ -4,7 +4,7 @@ variable "functions" {
     name            = string
     handler         = string
     runtime         = string
-    source_code_hash = string
+   # source_code_hash = string
     role = string
   }))
 }
@@ -15,7 +15,7 @@ resource "aws_lambda_function" "lambda_functions" {
   function_name    = each.value.name
   handler          = each.value.handler
   runtime          = each.value.runtime
-  source_code_hash = each.value.source_code_hash
+ # source_code_hash = each.value.source_code_hash
 
   filename         = each.value.name
   role = each.value.role
