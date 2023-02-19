@@ -5,7 +5,7 @@ provider "aws" {
 
 data "archive_file" "function1" {
   type        = "zip"
-  source_dir  = "function1"
+  source_dir  = "./function1"
   output_path = "function1.zip"
 }
 
