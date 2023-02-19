@@ -3,10 +3,24 @@ provider "aws" {
   region = "us-east-1"
 }
 
+#data "archive_file" "function1_archive" {
+ # type        = "zip"
+  #source_dir  = "function1"
+  #output_path = "function1"
+#}
+
 data "archive_file" "function1_archive" {
   type        = "zip"
-  source_dir  = "function1/"
-  output_path = "function1/function1.zip"
+  source_dir  = "function1"
+
+}
+
+resource "null_resource" "function1_zip" {
+  depends_on = [aws_lambda_function.function1]
+
+  provisioner "local-exec" {
+    command = "echo '${data.archive_file.function1_archive.output_path}'"
+  }
 }
 
 data "archive_file" "function2_archive" {
