@@ -1,13 +1,5 @@
 # lambda_functions/main.tf
-variable "functions" {
-  type = list(object({
-    name            = string
-    handler         = string
-    runtime         = string
-    #source_code_hash = string
-    role = string
-  }))
-}
+
 
 resource "aws_lambda_function" "lambda_functions" {
   for_each = { for f in var.functions : f.name => f }
